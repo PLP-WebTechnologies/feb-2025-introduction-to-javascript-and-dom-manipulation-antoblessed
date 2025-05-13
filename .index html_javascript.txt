@@ -1,0 +1,59 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Manipulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="main-title">Welcome to My Page</h1>
+    </header>
+
+    <section>
+        <p id="description">Click the buttons below to interact with the page using JavaScript!</p>
+        <button onclick="changeText()">Change Text</button>
+        <button onclick="changeStyle()">Change Style</button>
+        <button onclick="toggleElement()">Add/Remove Element</button>
+    </section>
+
+    <article id="content">
+        <p>This is a sample article. JavaScript will change this content.</p>
+    </article>
+
+    <footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+Javascript
+function changeText() {
+    document.getElementById("main-title").textContent = "You clicked the Change Text button!";
+    document.getElementById("content").innerHTML = "<p>The content has been updated dynamically using JavaScript.</p>";
+}
+
+function changeStyle() {
+    const description = document.getElementById("description");
+    description.style.color = "white";
+    description.style.backgroundColor = "teal";
+    description.style.padding = "10px";
+    description.style.borderRadius = "5px";
+}
+
+function toggleElement() {
+    const existing = document.getElementById("extra");
+    if (existing) {
+        existing.remove();
+    } else {
+        const newElement = document.createElement("div");
+        newElement.id = "extra";
+        newElement.textContent = "This element was added with JavaScript!";
+        newElement.style.marginTop = "10px";
+        newElement.style.padding = "10px";
+        newElement.style.backgroundColor = "#eee";
+        document.body.appendChild(newElement);
